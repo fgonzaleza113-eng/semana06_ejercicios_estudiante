@@ -1,0 +1,13 @@
+capacidad = 700
+grupos_aceptados = []
+grupos_rechazados = []
+ocupacion = 0
+
+entrada = input("Ingrese la cantidad de personas del grupo o 'fin' para terminar: ")
+
+while entrada.lower() != "fin":
+    try:
+        grupo = int(entrada)
+
+        if grupo <= 0:
+            print("Entrada inválida: ingrese un número entero mayor que cero.")
