@@ -1,13 +1,20 @@
-"""Microreto independiente: crear una función que limpie un nombre."""
+"""Microreto independiente: sumar tiempos con una función y un acumulador."""
 
-#TODO : Aquí puede agregar un diccionario de equivalencias de nombres de medicamentos, por ejemplo: "ibuprofeno" y "paracetamol".
+ESPERAS = [12, 20, 18]
 
-def limpiar_nombre(nombre):
-    """Devuelve nombre sin espacios en los extremos y en mayúsculas."""
-    # TODO: complete el retorno del string limpio.
-    #TODO: Agregue equivalente de nombres del diccionario de medicamentos, por ejemplo: "ibuprofeno" y "paracetamol".
-    return nombre
+def sumar_esperas(minutos):
+    """Devuelve la suma de los minutos recibidos en horas."""
+    total = 0
+    for minuto in minutos:
+        # TODO: acumule cada minuto en total.
+        total += minuto
+    total = total / 60
+    return total
 
 
-print(limpiar_nombre("  acetaminofén "))
-#TODO: Pruebe la función con varios nombres de medicamentos como "ibuprofeno", "paracetamol", "amoxicilina", etc. y verifique que los resultados sean correctos.     
+#TODO: llame a la función sumar_esperas y guarde el resultado en una variable. Luego, imprima el resultado en horas.
+horas = sumar_esperas(ESPERAS)
+print("Horas:", horas)
+
+horas_extra = sumar_esperas([20, 25, 45, 36, 22, 5, 15, 80])
+print("Horas extra:", horas_extra)
