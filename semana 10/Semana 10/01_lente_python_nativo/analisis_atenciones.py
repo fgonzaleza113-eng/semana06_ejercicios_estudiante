@@ -1,54 +1,40 @@
-"""Semana 10: resolvemos juntos el caso pendiente de la Semana 9."""
+"""El mismo expediente, con Pandas y las mismas tres funciones."""
 
-from lector_csv import cargar_atenciones
+from pathlib import Path
+from types import SimpleNamespace
+# Aquí importaremos pandas (ej. import pandas as pd).
+
+ARCHIVO_CSV = Path(__file__).with_name("atenciones.csv")
 
 
 def explorar_atenciones(atenciones):
     """Decisión 1: ¿qué leímos y cuántas atenciones hay?"""
-    # Contamos las filas con un for. Luego miramos los campos de la primera.
-    cantidad = 0
-    for atencion in atenciones:
-        # Completamos aquí el contador.
-        pass
-
-    print("Atenciones:", cantidad)
-    print("Campos:", list(atenciones[0]))
+    # Contamos las filas del DataFrame y mostramos los nombres de sus columnas.
+    pass
 
 
 def contar_categorias(atenciones):
     """Decisión 2: ¿qué medicamentos, hospitales y diagnósticos aparecen?"""
-    medicamentos = {}
-    hospitales = {}
-    diagnosticos = {}
-
-    for atencion in atenciones:
-        # Los nombres ya vienen uniformes en el CSV.
-        # Contamos cada categoría en su diccionario con .get().
-        pass
-
-    print("Medicamentos:", medicamentos)
-    print("Hospitales:", hospitales)
-    print("Diagnósticos:", diagnosticos)
+    # Contamos la frecuencia de cada medicamento, hospital y diagnóstico usando Pandas.
+    pass
 
 
 def concluir(atenciones):
     """Decisiones 3 y 4: ¿cuántas personas hay y cuánto esperaron?"""
-    visitas = {}
-    total_minutos = 0
-
-    for atencion in atenciones:
-        # Contamos la cédula y acumulamos los minutos de espera.
-        pass
-
-    print("Personas:", len(visitas))
-    print("Minutos de espera:", total_minutos)
-    print("Promedio:", total_minutos / len(atenciones))
+    # Contamos personas únicas por cédula, visitas por persona, total y promedio de espera.
+    pass
 
 
-atenciones = cargar_atenciones()
-if atenciones:
+try:
+    # Leemos el CSV con pd.read_csv(ARCHIVO_CSV). Se usa SimpleNamespace(empty=True) para evitar error.
+    atenciones = SimpleNamespace(empty=True)
+except FileNotFoundError:
+    print(f"No encontramos el archivo: {ARCHIVO_CSV}")
+    raise SystemExit(1)
+
+if not atenciones.empty:
     explorar_atenciones(atenciones)
     contar_categorias(atenciones)
     concluir(atenciones)
 else:
-    print("Revisamos los TODO de lector_csv.py.")
+    print("El archivo no contiene atenciones.")
